@@ -16,7 +16,14 @@
             height: 30px;
         }
         .main {
-            height: 2000px
+            height: 1000px;
+        }
+        .footer {
+            background: hotpink;
+            height: 30px;
+        }
+        .footer2 {
+            height: 30px;
         }
     </style>
 </head>
@@ -24,17 +31,25 @@
 <div class="header">
     Header
 </div>
-<div class="nav mobilis">
+<div class="nav">
     Nav
 </div>
 <div class="main">
     Main
 </div>
+<div class="footer mobilis">
+    Footer
+</div>
+<div class="footer2">
+    Footer 2
+</div>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="jquery.immobilis.js"></script>
 <script>
     $(document).ready(function(){
-        $(".mobilis").immobilis();
+        $(".mobilis").immobilis({
+            target: "bottom"
+        });
     });
 </script>
 </body>

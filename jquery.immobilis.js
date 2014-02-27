@@ -11,6 +11,7 @@
     $.fn.immobilis = function(opts){
         var defaults = {
             mainClass: "immobilis",
+            target: "top",
             css: true
         };
 
@@ -18,9 +19,9 @@
 
         return this.each(function(){
             var $mobilisClass = $(this);
-            var $initialPos = $mobilisClass.offset().top;
+            var $initialPosTop = $mobilisClass.offset().top;
 
-            function immobilis(){
+            function immobilisTop(){
                 var $scrollTop = $(window).scrollTop();
                 var $mobilisPos = $mobilisClass.offset().top;
 
@@ -34,7 +35,7 @@
                             "left": 0
                         });
                     }
-                } else if($scrollTop < $initialPos){
+                } else if($scrollTop < $initialPosTop){
                     $mobilisClass.removeClass(params.mainClass);
                     if(params.css){
                         $mobilisClass.css({
@@ -47,8 +48,50 @@
                 }
             }
 
+            function immobilisFooter(){
+                var $windowHeight = $(window).height();
+                var $documentHeight = $(document).height();
+                var $heightGap = $documentHeight - $windowHeight;
+                var $scrollTop = $(window).scrollTop();
+
+                if($scrollTop < ($heightGap - 30)){
+                    $mobilisClass.addClass(params.mainClass);
+                    $mobilisClass.prev().css("margin-bottom", "30px");
+                    if(params.css){
+                        $mobilisClass.css({
+                            "width": "100%",
+                            "position": "fixed",
+                            "top": "auto",
+                            "bottom": 0,
+                            "left": 0
+                        });
+                    }
+                } else {
+                    $mobilisClass.removeClass(params.mainClass);
+                    $mobilisClass.prev().css("margin-bottom", "");
+                    if(params.css){
+                        $mobilisClass.css({
+                            "width": "",
+                            "position": "",
+                            "top": "",
+                            "bottom": "",
+                            "left": ""
+                        });
+                    }
+                }
+
+                console.log($scrollTop);
+            }
+
+            immobilisTop();
+            immobilisFooter();
+
             $(window).scroll(function(){
-                immobilis();
+                if(params.target == "top"){
+                    immobilisTop();
+                } else if(params.target == "bottom"){
+                    immobilisFooter();
+                }
             });
         });
     };
