@@ -2,10 +2,11 @@
 
 ## Parameters
 
-| Options       | Defaults          |
-| ------------- | ----------------- |
-| ``mainClass`` | immobilis         |
-| ``css``       | boolean: ``true`` |
+| Options       | Types   | Defaults  | Others     |
+| ------------- | ------- | --------- | ---------- |
+| mainClass     | string  | immobilis | Your class |
+| css           | boolean | true      | false      |
+| target        | string  | top       | bottom     |
 
 ## Changelogs
 

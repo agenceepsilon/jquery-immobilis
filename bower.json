@@ -8,6 +8,6 @@
         "immobilis.jquery.json"
     ],
     "dependencies": {
-        "jquery": "1.11.0"
+        "jquery": "~1.11.0"
     }
 }

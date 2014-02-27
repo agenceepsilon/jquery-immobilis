@@ -24,9 +24,11 @@
             function immobilisTop(){
                 var $scrollTop = $(window).scrollTop();
                 var $mobilisPos = $mobilisClass.offset().top;
+                var $mobilisHeight = $($mobilisClass).height();
 
                 if($scrollTop > $mobilisPos){
                     $mobilisClass.addClass(params.mainClass);
+                    $mobilisClass.next().css("margin-top", $mobilisHeight);
                     if(params.css){
                         $mobilisClass.css({
                             "width": "100%",
@@ -37,6 +39,7 @@
                     }
                 } else if($scrollTop < $initialPosTop){
                     $mobilisClass.removeClass(params.mainClass);
+                    $mobilisClass.next().css("margin-top", "");
                     if(params.css){
                         $mobilisClass.css({
                             "width": "",
@@ -53,10 +56,11 @@
                 var $documentHeight = $(document).height();
                 var $heightGap = $documentHeight - $windowHeight;
                 var $scrollTop = $(window).scrollTop();
+                var $mobilisHeight = $($mobilisClass).height();
 
-                if($scrollTop < ($heightGap - 30)){
+                if($scrollTop < $heightGap){
                     $mobilisClass.addClass(params.mainClass);
-                    $mobilisClass.prev().css("margin-bottom", "30px");
+                    $mobilisClass.prev().css("margin-bottom", $mobilisHeight);
                     if(params.css){
                         $mobilisClass.css({
                             "width": "100%",
@@ -66,7 +70,7 @@
                             "left": 0
                         });
                     }
-                } else {
+                } else{
                     $mobilisClass.removeClass(params.mainClass);
                     $mobilisClass.prev().css("margin-bottom", "");
                     if(params.css){
@@ -79,17 +83,20 @@
                         });
                     }
                 }
-
-                console.log($scrollTop);
             }
 
-            immobilisTop();
-            immobilisFooter();
+            if(params.target == "top"){
+                immobilisTop();
+            }
+            if(params.target == "bottom"){
+                immobilisFooter();
+            }
 
             $(window).scroll(function(){
                 if(params.target == "top"){
                     immobilisTop();
-                } else if(params.target == "bottom"){
+                }
+                if(params.target == "bottom"){
                     immobilisFooter();
                 }
             });
