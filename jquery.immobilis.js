@@ -51,5 +51,5 @@
                 immobilis();
             });
         });
-    }
+    };
 })(jQuery);
