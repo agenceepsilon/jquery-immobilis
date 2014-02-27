@@ -1,0 +1,11 @@
+{
+    "name": "jquery-immobilis",
+    "version": "0.0.1",
+    "ignore": [
+        "*.md",
+        ".gitignore"
+    ],
+    "dependencies": {
+        "jquery": "1.11.0"
+    }
+}
