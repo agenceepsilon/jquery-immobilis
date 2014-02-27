@@ -1,3 +1,12 @@
+/**
+ * jQuery Immobilis
+ * Version: 0.0.1
+ *
+ * GitHub: https://github.com/agenceepsilon/jquery-immobilis
+ *
+ * Date: 2014-02-27
+ */
+
 $(document).ready(function(){
     var $mobilisClass = $(".mobilis");
     var $initialPos = $mobilisClass.offset().top;
@@ -23,10 +32,6 @@ $(document).ready(function(){
                 "left": ""
             });
         }
-
-        console.log("Scroll " + $scrollTop);
-        console.log("Position " + $mobilisPos);
-        console.log("Position initial " + $initialPos);
     }
 
     $(window).scroll(function(){
