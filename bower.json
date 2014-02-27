@@ -1,12 +1,14 @@
 {
     "name": "jquery-immobilis",
     "version": "1.0.0",
-    "ignore": [
-        "*.md",
-        "*.html",
-        ".gitignore",
-        "immobilis.jquery.json"
-    ],
+    "main": "jquery.immobilis.js",
+    "ignore":
+        [
+            "*.md",
+            "*.html",
+            ".gitignore",
+            "immobilis.jquery.json"
+        ],
     "dependencies": {
         "jquery": "~1.11.0"
     }

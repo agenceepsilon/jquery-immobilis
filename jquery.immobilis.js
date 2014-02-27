@@ -37,7 +37,8 @@
                             "left": 0
                         });
                     }
-                } else if($scrollTop < $initialPosTop){
+                }
+                if($scrollTop < $initialPosTop){
                     $mobilisClass.removeClass(params.mainClass);
                     $mobilisClass.next().css("margin-top", "");
                     if(params.css){
