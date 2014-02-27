@@ -4,14 +4,18 @@
     "description": "",
     "version": "1.0.0",
     "keywords": [
-        "jquery",
-        "scroll",
-        "fixed"
+        "jquery", "scroll", "fixed"
     ],
     "author": {
         "name": "Boris Damevin",
         "url": "https://github.com/agenceepsilon/jquery-immobilis"
     },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://www.opensource.org/licenses/mit-license.php"
+        }
+    ],
     "bugs": "https://github.com/agenceepsilon/jquery-immobilis/issues",
     "homepage": "https://github.com/agenceepsilon/jquery-immobilis",
     "docs": "https://github.com/agenceepsilon/jquery-immobilis",
