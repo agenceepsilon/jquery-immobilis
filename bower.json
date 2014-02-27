@@ -3,7 +3,9 @@
     "version": "1.0.0",
     "ignore": [
         "*.md",
-        ".gitignore"
+        "*.html",
+        ".gitignore",
+        "immobilis.jquery.json"
     ],
     "dependencies": {
         "jquery": "1.11.0"
