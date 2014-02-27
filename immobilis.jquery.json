@@ -2,7 +2,7 @@
     "name": "immobilis",
     "title": "jQuery Immobilis",
     "description": "Easily place your content blocks on top or bottom of the page to scroll.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "keywords": [
         "jquery", "scroll", "fixed"
     ],
