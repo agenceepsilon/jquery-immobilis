@@ -1,40 +1,55 @@
 /**
  * jQuery Immobilis
- * Version: 0.0.1
+ * Version: 1.0.0
  *
  * GitHub: https://github.com/agenceepsilon/jquery-immobilis
  *
  * Date: 2014-02-27
  */
 
-$(document).ready(function(){
-    var $mobilisClass = $(".mobilis");
-    var $initialPos = $mobilisClass.offset().top;
+(function($){
+    $.fn.immobilis = function(opts){
+        var defaults = {
+            mainClass: "immobilis",
+            css: true
+        };
 
-    function immobilis(){
-        var $scrollTop = $(window).scrollTop();
-        var $mobilisPos = $mobilisClass.offset().top;
+        var params = $.extend(defaults, opts);
 
-        if($scrollTop > $mobilisPos){
-            $mobilisClass.addClass("immobilis");
-            $mobilisClass.css({
-                "width": "100%",
-                "position": "fixed",
-                "top": 0,
-                "left": 0
+        return this.each(function(){
+            var $mobilisClass = $(this);
+            var $initialPos = $mobilisClass.offset().top;
+
+            function immobilis(){
+                var $scrollTop = $(window).scrollTop();
+                var $mobilisPos = $mobilisClass.offset().top;
+
+                if($scrollTop > $mobilisPos){
+                    $mobilisClass.addClass(params.mainClass);
+                    if(params.css){
+                        $mobilisClass.css({
+                            "width": "100%",
+                            "position": "fixed",
+                            "top": 0,
+                            "left": 0
+                        });
+                    }
+                } else if($scrollTop < $initialPos){
+                    $mobilisClass.removeClass(params.mainClass);
+                    if(params.css){
+                        $mobilisClass.css({
+                            "width": "",
+                            "position": "",
+                            "top": "",
+                            "left": ""
+                        });
+                    }
+                }
+            }
+
+            $(window).scroll(function(){
+                immobilis();
             });
-        } else if($scrollTop < $initialPos){
-            $mobilisClass.removeClass("immobilis");
-            $mobilisClass.css({
-                "width": "",
-                "position": "",
-                "top": "",
-                "left": ""
-            });
-        }
+        });
     }
-
-    $(window).scroll(function(){
-        immobilis();
-    });
-});
+})(jQuery);
