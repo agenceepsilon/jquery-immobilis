@@ -1,10 +1,7 @@
-/**
- * jQuery Immobilis
- * Version: 1.1.0
- *
- * GitHub: https://github.com/agenceepsilon/jquery-immobilis
- *
- * Date: 2014-02-27
+/*!
+ * jQuery Immobilis v1.1.0 (https://github.com/agenceepsilon/jquery-immobilis)
+ * Copyright 2014 Agence Epsilon.
+ * Licensed under MIT (http://www.opensource.org/licenses/mit-license.php)
  */
 
 (function($){
