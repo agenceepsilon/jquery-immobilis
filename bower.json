@@ -1,15 +1,26 @@
 {
     "name": "jquery-immobilis",
     "version": "1.1.0",
+    "description": "Easily place your content blocks on top or bottom of the page to scroll.",
     "main": "jquery.immobilis.js",
-    "ignore":
-        [
-            "*.md",
-            "*.html",
-            ".gitignore",
-            "immobilis.jquery.json"
-        ],
+    "ignore": [
+        "*.md",
+        "*.html",
+        ".gitignore",
+        "immobilis.jquery.json"
+    ],
     "dependencies": {
         "jquery": "~1.11.0"
-    }
+    },
+    "keywords": [
+        "jquery",
+        "scroll",
+        "fixed"
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://www.opensource.org/licenses/mit-license.php"
+        }
+    ]
 }
