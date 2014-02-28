@@ -1,5 +1,5 @@
 /*!
- * jQuery Immobilis v1.1.0 (https://github.com/agenceepsilon/jquery-immobilis)
+ * jQuery Immobilis v1.1.1 (https://github.com/agenceepsilon/jquery-immobilis)
  * Copyright 2014 Agence Epsilon.
  * Licensed under MIT (http://www.opensource.org/licenses/mit-license.php)
  */
@@ -18,6 +18,48 @@
             var $mobilisClass = $(this);
             var $initialPosTop = $mobilisClass.offset().top;
 
+            function cssStyle(){
+                if(params.css){
+                    if(params.target == "top"){
+                        $mobilisClass.css({
+                            "width": "100%",
+                            "position": "fixed",
+                            "top": 0,
+                            "left": 0
+                        });
+                    } else {
+                        $mobilisClass.css({
+                            "width": "100%",
+                            "position": "fixed",
+                            "top": "auto",
+                            "bottom": "0",
+                            "left": 0
+                        });
+                    }
+                }
+            }
+
+            function cssStyleReset(){
+                if(params.css){
+                    if(params.target == "top"){
+                        $mobilisClass.css({
+                            "width": "",
+                            "position": "",
+                            "top": "",
+                            "left": ""
+                        });
+                    } else {
+                        $mobilisClass.css({
+                            "width": "",
+                            "position": "",
+                            "top": "",
+                            "bottom": "",
+                            "left": ""
+                        });
+                    }
+                }
+            }
+
             function immobilisTop(){
                 var $scrollTop = $(window).scrollTop();
                 var $mobilisPos = $mobilisClass.offset().top;
@@ -26,26 +68,14 @@
                 if($scrollTop > $mobilisPos){
                     $mobilisClass.addClass(params.mainClass);
                     $mobilisClass.next().css("margin-top", $mobilisHeight);
-                    if(params.css){
-                        $mobilisClass.css({
-                            "width": "100%",
-                            "position": "fixed",
-                            "top": 0,
-                            "left": 0
-                        });
-                    }
+
+                    cssStyle();
                 }
                 if($scrollTop < $initialPosTop){
                     $mobilisClass.removeClass(params.mainClass);
                     $mobilisClass.next().css("margin-top", "");
-                    if(params.css){
-                        $mobilisClass.css({
-                            "width": "",
-                            "position": "",
-                            "top": "",
-                            "left": ""
-                        });
-                    }
+
+                    cssStyleReset();
                 }
             }
 
@@ -59,27 +89,13 @@
                 if($scrollTop < $heightGap){
                     $mobilisClass.addClass(params.mainClass);
                     $mobilisClass.prev().css("margin-bottom", $mobilisHeight);
-                    if(params.css){
-                        $mobilisClass.css({
-                            "width": "100%",
-                            "position": "fixed",
-                            "top": "auto",
-                            "bottom": 0,
-                            "left": 0
-                        });
-                    }
-                } else{
+
+                    cssStyle();
+                } else {
                     $mobilisClass.removeClass(params.mainClass);
                     $mobilisClass.prev().css("margin-bottom", "");
-                    if(params.css){
-                        $mobilisClass.css({
-                            "width": "",
-                            "position": "",
-                            "top": "",
-                            "bottom": "",
-                            "left": ""
-                        });
-                    }
+
+                    cssStyleReset();
                 }
             }
 

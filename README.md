@@ -16,6 +16,11 @@ Easily place your content blocks on top or bottom of the page to scroll.
 
 ## Changelogs
 
+### 1.1.1
+
+* innerHeight(); ([#2](https://github.com/agenceepsilon/jquery-immobilis/issues/2))
+* Code optimisation
+
 ### 1.1.0
 
 * Add ``target`` options ([#1](https://github.com/agenceepsilon/jquery-immobilis/issues/1))
