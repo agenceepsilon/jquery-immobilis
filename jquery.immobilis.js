@@ -21,7 +21,7 @@
             function immobilisTop(){
                 var $scrollTop = $(window).scrollTop();
                 var $mobilisPos = $mobilisClass.offset().top;
-                var $mobilisHeight = $($mobilisClass).height();
+                var $mobilisHeight = $($mobilisClass).innerHeight();
 
                 if($scrollTop > $mobilisPos){
                     $mobilisClass.addClass(params.mainClass);
@@ -54,7 +54,7 @@
                 var $documentHeight = $(document).height();
                 var $heightGap = $documentHeight - $windowHeight;
                 var $scrollTop = $(window).scrollTop();
-                var $mobilisHeight = $($mobilisClass).height();
+                var $mobilisHeight = $($mobilisClass).innerHeight();
 
                 if($scrollTop < $heightGap){
                     $mobilisClass.addClass(params.mainClass);
