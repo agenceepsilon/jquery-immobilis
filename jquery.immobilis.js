@@ -99,20 +99,19 @@
                 }
             }
 
-            if(params.target == "top"){
-                immobilisTop();
-            }
-            if(params.target == "bottom"){
-                immobilisFooter();
-            }
-
-            $(window).scroll(function(){
+            function initImmobilis(){
                 if(params.target == "top"){
                     immobilisTop();
                 }
                 if(params.target == "bottom"){
                     immobilisFooter();
                 }
+            }
+
+            initImmobilis();
+
+            $(window).scroll(function(){
+                initImmobilis();
             });
         });
     };
