@@ -1,4 +1,4 @@
-# jQuery Immobilis
+# jQuery Immobilis [![GitHub version](https://badge.fury.io/gh/agenceepsilon%2Fjquery-immobilis.png)](http://badge.fury.io/gh/agenceepsilon%2Fjquery-immobilis) [![Bower version](https://badge.fury.io/bo/jquery-immobilis.png)](http://badge.fury.io/bo/jquery-immobilis)
 
 Easily place your content blocks on top or bottom of the page to scroll.
 
