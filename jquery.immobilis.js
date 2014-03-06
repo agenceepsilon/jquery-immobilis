@@ -86,20 +86,20 @@
                 var $scrollTop = $(window).scrollTop();
                 var $mobilisHeight = $($mobilisClass).innerHeight();
 
-                if($scrollTop < $heightGap){
-                    $mobilisClass.addClass(params.mainClass);
-                    $mobilisClass.prev().css("margin-bottom", $mobilisHeight);
-
-                    cssStyle();
-                } else {
+                if($scrollTop >= $heightGap){
                     $mobilisClass.removeClass(params.mainClass);
                     $mobilisClass.prev().css("margin-bottom", "");
 
                     cssStyleReset();
+                } else{
+                    $mobilisClass.addClass(params.mainClass);
+                    $mobilisClass.prev().css("margin-bottom", $mobilisHeight);
+
+                    cssStyle();
                 }
             }
 
-            function initImmobilis(){
+            function immobilisInit(){
                 if(params.target == "top"){
                     immobilisTop();
                 }
@@ -108,10 +108,10 @@
                 }
             }
 
-            initImmobilis();
+            immobilisInit();
 
             $(window).scroll(function(){
-                initImmobilis();
+                immobilisInit();
             });
         });
     };
