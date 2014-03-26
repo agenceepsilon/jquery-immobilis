@@ -19,14 +19,14 @@ Easily place your content blocks on top or bottom of the page to scroll.
 ### 1.2.0
 
 * Options:
-    * "mainClass" replaced by "itemSelector" ([#3](https://github.com/agenceepsilon/jquery-immobilis/issues/3))
+    * ``mainClass`` replaced by ``itemSelector`` ([#3](https://github.com/agenceepsilon/jquery-immobilis/issues/3))
 * Code optimisation:
     * Code cleaning
-    * outerHeight(); ([#4](https://github.com/agenceepsilon/jquery-immobilis/issues/4))
+    * ``outerHeight();`` ([#4](https://github.com/agenceepsilon/jquery-immobilis/issues/4))
 
 ### 1.1.1
 
-* innerHeight(); ([#2](https://github.com/agenceepsilon/jquery-immobilis/issues/2))
+* ``innerHeight();`` ([#2](https://github.com/agenceepsilon/jquery-immobilis/issues/2))
 * Code optimisation
 
 ### 1.1.0
