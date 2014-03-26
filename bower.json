@@ -1,6 +1,6 @@
 {
     "name": "jquery-immobilis",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "description": "Easily place your content blocks on top or bottom of the page to scroll.",
     "main": "jquery.immobilis.js",
     "ignore": [
@@ -15,7 +15,9 @@
     "keywords": [
         "jquery",
         "scroll",
-        "fixed"
+        "fixed",
+        "header",
+        "footer"
     ],
     "licenses": [
         {

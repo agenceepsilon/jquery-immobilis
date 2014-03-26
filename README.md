@@ -4,17 +4,25 @@ Easily place your content blocks on top or bottom of the page to scroll.
 
 ## Parameters
 
-| Options       | Types   | Defaults  | Others     |
-| ------------- | ------- | --------- | ---------- |
-| mainClass     | string  | immobilis | Your class |
-| css           | boolean | ``true``  | ``false``  |
-| target        | string  | top       | bottom     |
+| Options       | Types   | Defaults  | Others            |
+| ------------- | ------- | --------- | ----------------- |
+| itemSelector  | string  | immobilis | Choose your class |
+| css           | boolean | ``true``  | ``false``         |
+| target        | string  | "top "    | "bottom"          |
 
 ## Initialize
 
     $(".mobilis").immobilis();
 
 ## Changelogs
+
+### 1.2.0
+
+* Options:
+    * "mainClass" replaced by "itemSelector" ([#3](https://github.com/agenceepsilon/jquery-immobilis/issues/3))
+* Code optimisation:
+    * Code cleaning
+    * outerHeight(); ([#4](https://github.com/agenceepsilon/jquery-immobilis/issues/4))
 
 ### 1.1.1
 

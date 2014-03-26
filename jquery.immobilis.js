@@ -1,5 +1,5 @@
 /*!
- * jQuery Immobilis v1.1.1 (https://github.com/agenceepsilon/jquery-immobilis)
+ * jQuery Immobilis v1.2.0 (https://github.com/agenceepsilon/jquery-immobilis)
  * Copyright 2014 Agence Epsilon.
  * Licensed under MIT (http://www.opensource.org/licenses/mit-license.php)
  */
@@ -7,7 +7,7 @@
 (function($){
     $.fn.immobilis = function(opts){
         var defaults = {
-            mainClass: "immobilis",
+            itemSelector: "immobilis",
             target: "top",
             css: true
         };
@@ -15,85 +15,81 @@
         var params = $.extend(defaults, opts);
 
         return this.each(function(){
-            var $mobilisClass = $(this);
-            var $initialPosTop = $mobilisClass.offset().top;
+            var $elem = $(this);
+            var $initialElemPos = $elem.offset().top;
 
-            function cssStyle(){
+            function cssStyle($reset){
                 if(params.css){
-                    if(params.target == "top"){
-                        $mobilisClass.css({
-                            "width": "100%",
-                            "position": "fixed",
-                            "top": 0,
-                            "left": 0
-                        });
-                    } else {
-                        $mobilisClass.css({
-                            "width": "100%",
-                            "position": "fixed",
-                            "top": "auto",
-                            "bottom": "0",
-                            "left": 0
-                        });
-                    }
-                }
-            }
-
-            function cssStyleReset(){
-                if(params.css){
-                    if(params.target == "top"){
-                        $mobilisClass.css({
-                            "width": "",
-                            "position": "",
-                            "top": "",
-                            "left": ""
-                        });
-                    } else {
-                        $mobilisClass.css({
-                            "width": "",
-                            "position": "",
-                            "top": "",
-                            "bottom": "",
-                            "left": ""
-                        });
+                    if($reset !== false){
+                        if(params.target == "top"){
+                            $elem.css({
+                                "width": "100%",
+                                "position": "fixed",
+                                "top": 0,
+                                "left": 0
+                            });
+                        } else{
+                            $elem.css({
+                                "width": "100%",
+                                "position": "fixed",
+                                "bottom": "0",
+                                "left": 0
+                            });
+                        }
+                    } else{
+                        if(params.target == "top"){
+                            $elem.css({
+                                "width": "",
+                                "position": "",
+                                "top": "",
+                                "left": ""
+                            });
+                        } else{
+                            $elem.css({
+                                "width": "",
+                                "position": "",
+                                "bottom": "",
+                                "left": ""
+                            });
+                        }
                     }
                 }
             }
 
             function immobilisTop(){
                 var $scrollTop = $(window).scrollTop();
-                var $mobilisPos = $mobilisClass.offset().top;
-                var $mobilisHeight = $($mobilisClass).innerHeight();
+                var $mobilisPos = $elem.offset().top;
+                var $elemHeight = $($elem).outerHeight();
 
                 if($scrollTop > $mobilisPos){
-                    $mobilisClass.addClass(params.mainClass);
-                    $mobilisClass.next().css("margin-top", $mobilisHeight);
+                    $elem.addClass(params.itemSelector);
+                    $elem.next().css("margin-top", $elemHeight);
 
                     cssStyle();
                 }
-                if($scrollTop < $initialPosTop){
-                    $mobilisClass.removeClass(params.mainClass);
-                    $mobilisClass.next().css("margin-top", "");
+                if($scrollTop < $initialElemPos){
+                    $elem.removeClass(params.itemSelector);
+                    $elem.next().css("margin-top", "");
 
-                    cssStyleReset();
+                    cssStyle(false);
                 }
             }
 
             function immobilisFooter(){
+                var $scrollTop = $(window).scrollTop();
                 var $windowHeight = $(window).height();
                 var $documentHeight = $(document).height();
                 var $heightGap = $documentHeight - $windowHeight;
-                var $scrollTop = $(window).scrollTop();
-                var $mobilisHeight = $($mobilisClass).innerHeight();
+                var $elemHeight = $($elem).outerHeight();
 
                 if($scrollTop >= $heightGap){
-                    $mobilisClass.removeClass(params.mainClass);
-                    $mobilisClass.prev().css("margin-bottom", "");
+                    $elem.removeClass(params.itemSelector);
+                    $elem.prev().css("margin-bottom", "");
 
-                    cssStyleReset();
+                    cssStyle(false);
                 } else{
-                    $mobilisClass.addClass(params.mainClass);
-                    $mobilisClass.prev().css("margin-bottom", $mobilisHeight);
+                    $elem.addClass(params.itemSelector);
+                    $elem.prev().css("margin-bottom", $elemHeight);
 
                     cssStyle();
                 }
