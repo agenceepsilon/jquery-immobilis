@@ -7,8 +7,8 @@ Easily place your content blocks on top or bottom of the page to scroll.
 | Options       | Types   | Defaults  | Others            |
 | ------------- | ------- | --------- | ----------------- |
 | itemSelector  | string  | immobilis | Choose your class |
-| css           | boolean | ``true``  | ``false``         |
 | target        | string  | "top "    | "bottom"          |
+| css           | boolean | ``true``  | ``false``         |
 
 ## Initialize
 
