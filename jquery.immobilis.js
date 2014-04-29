@@ -16,7 +16,7 @@
 
         return this.each(function(){
             var $elem = $(this);
-            var $initialElemPos = $elem.offset().top;
+            var initialElemPos = $elem.offset().top;
 
             function cssStyle($reset){
                 if(params.css){
@@ -57,17 +57,17 @@
             }
 
             function immobilisTop(){
-                var $scrollTop = $(window).scrollTop();
-                var $mobilisPos = $elem.offset().top;
-                var $elemHeight = $($elem).outerHeight();
+                var scrollTop = $(window).scrollTop();
+                var mobilisPos = $elem.offset().top;
+                var elemHeight = $($elem).outerHeight();
 
-                if($scrollTop > $mobilisPos){
+                if(scrollTop > mobilisPos){
                     $elem.addClass(params.itemSelector);
-                    $elem.next().css("margin-top", $elemHeight);
+                    $elem.next().css("margin-top", elemHeight);
 
                     cssStyle();
                 }
-                if($scrollTop < $initialElemPos){
+                if(scrollTop < initialElemPos){
                     $elem.removeClass(params.itemSelector);
                     $elem.next().css("margin-top", "");
 
@@ -76,20 +76,20 @@
             }
 
             function immobilisFooter(){
-                var $scrollTop = $(window).scrollTop();
-                var $windowHeight = $(window).height();
-                var $documentHeight = $(document).height();
-                var $heightGap = $documentHeight - $windowHeight;
-                var $elemHeight = $($elem).outerHeight();
+                var scrollTop = $(window).scrollTop();
+                var windowHeight = $(window).height();
+                var documentHeight = $(document).height();
+                var heightGap = documentHeight - windowHeight;
+                var elemHeight = $($elem).outerHeight();
 
-                if($scrollTop >= $heightGap){
+                if(scrollTop >= heightGap){
                     $elem.removeClass(params.itemSelector);
                     $elem.prev().css("margin-bottom", "");
 
                     cssStyle(false);
                 } else{
                     $elem.addClass(params.itemSelector);
-                    $elem.prev().css("margin-bottom", $elemHeight);
+                    $elem.prev().css("margin-bottom", elemHeight);
 
                     cssStyle();
                 }

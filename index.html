@@ -34,20 +34,20 @@
 <div class="header">
     Header
 </div>
-<div class="nav mobilis-top">
+<div class="nav js-mobilis-top">
     Nav
 </div>
 <div class="main">
     Main
 </div>
-<div class="footer mobilis-bottom">Footer</div>
-<script src="bower_components/jquery/dist/jquery.js"></script>
+<div class="footer js-mobilis-bottom">Footer</div>
+<script src="bower_components/jquery/jquery.js"></script>
 <script src="jquery.immobilis.js"></script>
 <script>
     $(document).ready(function(){
-        $(".mobilis-top").immobilis();
+        $(".js-mobilis-top").immobilis();
 
-        $(".mobilis-bottom").immobilis({
+        $(".js-mobilis-bottom").immobilis({
             target: "bottom"
         });
     });
