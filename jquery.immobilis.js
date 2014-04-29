@@ -18,6 +18,56 @@
             var $elem = $(this);
             var initialElemPos = $elem.offset().top;
 
+            /**
+             * Top fixed
+             */
+            function immobilisTop(){
+                var scrollTop = $(window).scrollTop();
+                var mobilisPos = $elem.offset().top;
+                var elemHeight = $elem.outerHeight();
+
+                if(scrollTop > mobilisPos){
+                    $elem.addClass(params.itemSelector);
+                    $elem.next().css("margin-top", elemHeight);
+
+                    cssStyle();
+                }
+                if(scrollTop < initialElemPos){
+                    $elem.removeClass(params.itemSelector);
+                    $elem.next().css("margin-top", "");
+
+                    cssStyle(false);
+                }
+            }
+
+            /**
+             * Footer fixed
+             */
+            function immobilisFooter(){
+                var scrollTop = $(window).scrollTop();
+                var windowHeight = $(window).height();
+                var documentHeight = $(document).height();
+                var heightGap = documentHeight - windowHeight;
+                var elemHeight = $elem.outerHeight();
+
+                if(scrollTop >= heightGap){
+                    $elem.removeClass(params.itemSelector);
+                    $elem.prev().css("margin-bottom", "");
+
+                    cssStyle(false);
+                } else{
+                    $elem.addClass(params.itemSelector);
+                    $elem.prev().css("margin-bottom", elemHeight);
+
+                    cssStyle();
+                }
+            }
+
+            /**
+             * Default CSS style
+             *
+             * @param $reset
+             */
             function cssStyle($reset){
                 if(params.css){
                     if($reset !== false){
@@ -53,45 +103,6 @@
                             });
                         }
                     }
-                }
-            }
-
-            function immobilisTop(){
-                var scrollTop = $(window).scrollTop();
-                var mobilisPos = $elem.offset().top;
-                var elemHeight = $($elem).outerHeight();
-
-                if(scrollTop > mobilisPos){
-                    $elem.addClass(params.itemSelector);
-                    $elem.next().css("margin-top", elemHeight);
-
-                    cssStyle();
-                }
-                if(scrollTop < initialElemPos){
-                    $elem.removeClass(params.itemSelector);
-                    $elem.next().css("margin-top", "");
-
-                    cssStyle(false);
-                }
-            }
-
-            function immobilisFooter(){
-                var scrollTop = $(window).scrollTop();
-                var windowHeight = $(window).height();
-                var documentHeight = $(document).height();
-                var heightGap = documentHeight - windowHeight;
-                var elemHeight = $($elem).outerHeight();
-
-                if(scrollTop >= heightGap){
-                    $elem.removeClass(params.itemSelector);
-                    $elem.prev().css("margin-bottom", "");
-
-                    cssStyle(false);
-                } else{
-                    $elem.addClass(params.itemSelector);
-                    $elem.prev().css("margin-bottom", elemHeight);
-
-                    cssStyle();
                 }
             }
 
