@@ -18,48 +18,38 @@
             var $elem = $(this);
             var initialElemPos = $elem.offset().top;
 
-            /**
-             * Top fixed
-             */
-            function immobilisTop(){
+            function immobilis(target){
                 var scrollTop = $(window).scrollTop();
-                var mobilisPos = $elem.offset().top;
                 var elemHeight = $elem.outerHeight();
 
-                if(scrollTop > mobilisPos){
-                    $elem.addClass(params.itemSelector);
-                    $elem.next().css("margin-top", elemHeight);
+                if(target == "top"){
+                    var elemPos = $elem.offset().top;
 
-                    cssStyle();
+                    if(scrollTop > elemPos){
+                        $elem.addClass(params.itemSelector);
+                        $elem.next().css("margin-top", elemHeight);
+                        cssStyle();
+                    }
+                    if(scrollTop < initialElemPos){
+                        $elem.removeClass(params.itemSelector);
+                        $elem.next().css("margin-top", "");
+                        cssStyle(false);
+                    }
                 }
-                if(scrollTop < initialElemPos){
-                    $elem.removeClass(params.itemSelector);
-                    $elem.next().css("margin-top", "");
+                if(target == "bottom"){
+                    var windowHeight = $(window).height();
+                    var documentHeight = $(document).height();
+                    var heightGap = documentHeight - windowHeight;
 
-                    cssStyle(false);
-                }
-            }
-
-            /**
-             * Footer fixed
-             */
-            function immobilisFooter(){
-                var scrollTop = $(window).scrollTop();
-                var windowHeight = $(window).height();
-                var documentHeight = $(document).height();
-                var heightGap = documentHeight - windowHeight;
-                var elemHeight = $elem.outerHeight();
-
-                if(scrollTop >= heightGap){
-                    $elem.removeClass(params.itemSelector);
-                    $elem.prev().css("margin-bottom", "");
-
-                    cssStyle(false);
-                } else{
-                    $elem.addClass(params.itemSelector);
-                    $elem.prev().css("margin-bottom", elemHeight);
-
-                    cssStyle();
+                    if(scrollTop >= heightGap){
+                        $elem.removeClass(params.itemSelector);
+                        $elem.prev().css("margin-bottom", "");
+                        cssStyle(false);
+                    } else{
+                        $elem.addClass(params.itemSelector);
+                        $elem.prev().css("margin-bottom", elemHeight);
+                        cssStyle();
+                    }
                 }
             }
 
@@ -78,11 +68,12 @@
                                 "top": 0,
                                 "left": 0
                             });
-                        } else{
+                        }
+                        if(params.target == "bottom"){
                             $elem.css({
                                 "width": "100%",
                                 "position": "fixed",
-                                "bottom": "0",
+                                "bottom": 0,
                                 "left": 0
                             });
                         }
@@ -94,7 +85,8 @@
                                 "top": "",
                                 "left": ""
                             });
-                        } else{
+                        }
+                        if(params.target == "bottom"){
                             $elem.css({
                                 "width": "",
                                 "position": "",
@@ -106,19 +98,10 @@
                 }
             }
 
-            function immobilisInit(){
-                if(params.target == "top"){
-                    immobilisTop();
-                }
-                if(params.target == "bottom"){
-                    immobilisFooter();
-                }
-            }
-
-            immobilisInit();
+            immobilis(params.target);
 
             $(window).scroll(function(){
-                immobilisInit();
+                immobilis(params.target);
             });
         });
     };
